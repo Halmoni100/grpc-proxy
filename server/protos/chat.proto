@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package chat;
+
+service Chat {
+    rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+    rpc Chat(stream ChatRequest) returns (stream ChatResponse);
+}
+
+message HeartbeatRequest {
+}
+
+message HeartbeatResponse {
+    bool success = 1;
+}
+
+message ChatRequest {
+    string msg = 1;
+}
+
+message ChatResponse {
+    string msg = 1;
+}

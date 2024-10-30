@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git submodule update --init --recursive
+
 rm -rf install
 mkdir install
 
@@ -10,3 +12,9 @@ cd build_grpc
 cmake -G Ninja ../grpc -DCMAKE_INSTALL_PREFIX=~/Projects/swift/grpc-proxy/server/install
 ninja
 ninja install
+
+cd ../../protos
+make clean
+make
+
+
