@@ -26,6 +26,8 @@ target_link_libraries(chat_grpc
 
 add_executable(server
     src/main.cpp)
+target_include_directories(server PRIVATE
+    protos)
 target_link_libraries(server
     chat_grpc)
 
