@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR}/install)
 set(CMAKE_PREFIX_PATH ${CMAKE_CURRENT_SOURCE_DIR}/install)
 
+find_package(utf8_range REQUIRED)
 find_package(Protobuf REQUIRED)
 find_package(gRPC REQUIRED)
 
@@ -22,7 +23,9 @@ add_library(chat_grpc
 target_link_libraries(chat_grpc
     gRPC::grpc++_reflection
     gRPC::grpc++
-    protobuf::libprotobuf)
+    protobuf::libprotobuf
+    utf8_range::utf8_validity
+    utf8_range::utf8_range)
 
 add_executable(server
     src/main.cpp)
@@ -31,3 +34,4 @@ target_include_directories(server PRIVATE
 target_link_libraries(server
     chat_grpc)
 
+install(TARGETS server)
