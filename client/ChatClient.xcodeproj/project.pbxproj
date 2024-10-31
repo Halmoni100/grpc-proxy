@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950610C82CD3F3F0007F7316 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610C72CD3F3F0007F7316 /* ChatService.swift */; };
 		959741082CD3D96D00C878A9 /* chat.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741002CD3D96D00C878A9 /* chat.grpc.swift */; };
 		959741092CD3D96D00C878A9 /* chat.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741012CD3D96D00C878A9 /* chat.pb.swift */; };
 		9597410A2CD3D96D00C878A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741062CD3D96D00C878A9 /* ContentView.swift */; };
 		9597410B2CD3D96D00C878A9 /* chat.proto in Sources */ = {isa = PBXBuildFile; fileRef = 959740FF2CD3D96D00C878A9 /* chat.proto */; };
 		9597410C2CD3D96D00C878A9 /* ChatClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741052CD3D96D00C878A9 /* ChatClientApp.swift */; };
-		9597410E2CD3D96D00C878A9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 959741032CD3D96D00C878A9 /* .gitignore */; };
 		9597410F2CD3D96D00C878A9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 959740FE2CD3D96D00C878A9 /* .gitignore */; };
 		959741102CD3D96D00C878A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959741042CD3D96D00C878A9 /* Assets.xcassets */; };
 		95AA927D2CD2F9C20088DC18 /* CGRPCZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 95AA927C2CD2F9C20088DC18 /* CGRPCZlib */; };
@@ -23,11 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		950610C72CD3F3F0007F7316 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		959740FE2CD3D96D00C878A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		959740FF2CD3D96D00C878A9 /* chat.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = chat.proto; sourceTree = "<group>"; };
 		959741002CD3D96D00C878A9 /* chat.grpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat.grpc.swift; sourceTree = "<group>"; };
 		959741012CD3D96D00C878A9 /* chat.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat.pb.swift; sourceTree = "<group>"; };
-		959741032CD3D96D00C878A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		959741042CD3D96D00C878A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		959741052CD3D96D00C878A9 /* ChatClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatClientApp.swift; sourceTree = "<group>"; };
 		959741062CD3D96D00C878A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,10 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				959741022CD3D96D00C878A9 /* protos */,
-				959741032CD3D96D00C878A9 /* .gitignore */,
 				959741042CD3D96D00C878A9 /* Assets.xcassets */,
 				959741052CD3D96D00C878A9 /* ChatClientApp.swift */,
 				959741062CD3D96D00C878A9 /* ContentView.swift */,
+				950610C72CD3F3F0007F7316 /* ChatService.swift */,
 			);
 			path = ChatClient;
 			sourceTree = "<group>";
@@ -158,7 +158,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9597410E2CD3D96D00C878A9 /* .gitignore in Resources */,
 				9597410F2CD3D96D00C878A9 /* .gitignore in Resources */,
 				959741102CD3D96D00C878A9 /* Assets.xcassets in Resources */,
 			);
@@ -176,6 +175,7 @@
 				9597410A2CD3D96D00C878A9 /* ContentView.swift in Sources */,
 				9597410B2CD3D96D00C878A9 /* chat.proto in Sources */,
 				9597410C2CD3D96D00C878A9 /* ChatClientApp.swift in Sources */,
+				950610C82CD3F3F0007F7316 /* ChatService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
