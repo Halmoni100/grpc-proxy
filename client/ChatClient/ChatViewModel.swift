@@ -66,15 +66,19 @@ class ChatViewModel: ObservableObject {
                     if let timer = successTimer {
                         timer.invalidate()
                     }
-                    successTimer = Timer(timeInterval: 2, repeats: false) { [self] timer in
-                        mutex.wait()
-                        state = .noStream
-                        DispatchQueue.main.async { [self] in
-                            chatSuccess = false
-                            objectWillChange.send()
+                    DispatchQueue.main.async {
+                        self.successTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) {
+                                [self] timer in
+                            mutex.wait()
+                            state = .noStream
+                            DispatchQueue.main.async { [self] in
+                                chatSuccess = false
+                                objectWillChange.send()
+                            }
+                            mutex.signal()
                         }
-                        mutex.signal()
                     }
+                    ChatService.shared.stopChatStream()
                 } else {
                     ChatService.shared.stopChatStream()
                     state = .noStream

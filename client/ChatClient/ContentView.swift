@@ -24,7 +24,7 @@ struct ContentView: View {
     private func getSuccessView() -> some View {
         if model.chatSuccess {
             Text("Success!")
-                .foregroundStyle(.red)
+                .foregroundStyle(.green)
         } else {
             Text("Waiting...")
                 .foregroundStyle(.gray)

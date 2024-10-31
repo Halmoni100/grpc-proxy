@@ -40,7 +40,7 @@ private:
         chat::ChatResponse response;
         chat::ChatRequest request;
         stream->Read(&request);
-        std::cout << "Received msg: " << request.msg();
+        std::cout << "Received msg: " << request.msg() << std::endl;
         if (request.msg() == expectedMsg) {
             std::string msgToSend = expectedMsg + "_ack";
             std::cout << "Sending msg: " << msgToSend << std::endl;

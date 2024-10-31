@@ -90,6 +90,7 @@ class WatchChatViewModel: ObservableObject {
                     }
                     mutex.signal()
                 }
+                WatchChat.shared.stopChatStream()
             } else {
                 WatchChat.shared.stopChatStream()
                 state = .noStream

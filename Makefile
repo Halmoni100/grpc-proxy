@@ -26,7 +26,7 @@ all: $(SWIFT_PROTOS) $(SERVER_BINARY)
 $(SWIFT_PROTOS): $(PROTOC_GEN_SWIFT) $(PROTOC_GEN_GRPC_SWIFT) $(PROTOC)
 	$(PROTOC) chat.proto --proto_path=$(SERVER_DIR)/protos --swift_opt=Visibility=Public --swift_out=$(CLIENT_PROTOS_DIR) --grpc-swift_opt=Visibility=Public,Client=true,Server=false --grpc-swift_out=$(CLIENT_PROTOS_DIR) --plugin=protoc-gen-swift=$(PROTOC_GEN_SWIFT) --plugin=protoc-gen-grpc-swift=$(PROTOC_GEN_GRPC_SWIFT)
 
-run_server: $(SERVER_BINARY)
+run: $(SERVER_BINARY)
 	server/install/bin/server
 
 $(PROTOC_GEN_SWIFT): $(SUBMODULE_UPDATE_FILES)
