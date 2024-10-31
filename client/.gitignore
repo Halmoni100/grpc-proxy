@@ -1,4 +1,3 @@
-.cache/
-build_swift_protobuf/
-build_grpc_swift/
-install/
+.DS_Store
+ChatClient.xcodeproj/project.xcworkspace/
+!ChatClient.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
