@@ -8,6 +8,7 @@
 import Foundation
 
 struct Connectivity {
+    static let SEND_APPLICATION_CONTEXT = "send_application_context"
     static let SEND_START_CHAT = "send_start_chat"
     static let SEND_CHAT_MSG = "send_chat_msg"
     static let SEND_STOP_CHAT = "send_stop_chat"

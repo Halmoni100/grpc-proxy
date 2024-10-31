@@ -13,6 +13,7 @@
 		950610DE2CD40095007F7316 /* WatchChatClient.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 950610D12CD40094007F7316 /* WatchChatClient.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		950610F12CD4052D007F7316 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610F02CD4052D007F7316 /* Connectivity.swift */; };
 		950610F22CD4052D007F7316 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610F02CD4052D007F7316 /* Connectivity.swift */; };
+		950610F62CD4079C007F7316 /* IosConnectivityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610F52CD4079C007F7316 /* IosConnectivityImpl.swift */; };
 		959741082CD3D96D00C878A9 /* chat.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741002CD3D96D00C878A9 /* chat.grpc.swift */; };
 		959741092CD3D96D00C878A9 /* chat.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741012CD3D96D00C878A9 /* chat.pb.swift */; };
 		9597410A2CD3D96D00C878A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741062CD3D96D00C878A9 /* ContentView.swift */; };
@@ -57,6 +58,7 @@
 		950610CB2CD3FAAC007F7316 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		950610D12CD40094007F7316 /* WatchChatClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchChatClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		950610F02CD4052D007F7316 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		950610F52CD4079C007F7316 /* IosConnectivityImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IosConnectivityImpl.swift; sourceTree = "<group>"; };
 		959740FE2CD3D96D00C878A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		959740FF2CD3D96D00C878A9 /* chat.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = chat.proto; sourceTree = "<group>"; };
 		959741002CD3D96D00C878A9 /* chat.grpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat.grpc.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				950610C92CD3F913007F7316 /* WatchChatService.swift */,
 				950610CB2CD3FAAC007F7316 /* ChatViewModel.swift */,
 				950610F02CD4052D007F7316 /* Connectivity.swift */,
+				950610F52CD4079C007F7316 /* IosConnectivityImpl.swift */,
 			);
 			path = ChatClient;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				950610CA2CD3F913007F7316 /* WatchChatService.swift in Sources */,
 				9597410B2CD3D96D00C878A9 /* chat.proto in Sources */,
 				9597410C2CD3D96D00C878A9 /* ChatClientApp.swift in Sources */,
+				950610F62CD4079C007F7316 /* IosConnectivityImpl.swift in Sources */,
 				950610C82CD3F3F0007F7316 /* ChatService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
