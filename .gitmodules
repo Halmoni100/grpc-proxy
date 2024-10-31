@@ -1,12 +1,12 @@
 [submodule "server/third_party/grpc"]
-	path = server/third_party/grpc
+	path = server/third_party/repos/grpc
 	url = https://github.com/grpc/grpc.git
     branch = v1.67.1
 [submodule "client/third_party/swift-protobuf"]
-	path = client/third_party/swift-protobuf
+	path = client/third_party/repos/swift-protobuf
 	url = https://github.com/apple/swift-protobuf
     branch = 1.28.2
 [submodule "client/third_party/grpc-swift"]
-	path = client/third_party/grpc-swift
+	path = client/third_party/repos/grpc-swift
 	url = https://github.com/grpc/grpc-swift.git
     branch = 1.24.1
