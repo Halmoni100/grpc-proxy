@@ -20,6 +20,8 @@ class WatchChatService {
     private init() {}
     
     func startStreaming() {
+        print("WatchChatService start")
+        
         switch self.state {
         case .idle:
             ChatService.shared.startChatStream() { response in
@@ -31,6 +33,8 @@ class WatchChatService {
     }
     
     func stream(_ msg: String) {
+        print("WatchChatService stream msg \(msg)")
+        
         switch self.state {
         case .streaming:
             ChatService.shared.streamChatMsg(msg)
@@ -39,6 +43,8 @@ class WatchChatService {
     }
     
     func stopStreaming() {
+        print("WatchChatService stop")
+        
         switch self.state {
         case .streaming:
             ChatService.shared.stopChatStream()
@@ -48,6 +54,6 @@ class WatchChatService {
     }
     
     private func sendResponseToWatch(_ msg: String) {
-        
+        IosConnectivityImpl.shared.sendChatResponse(msg)
     }
 }
