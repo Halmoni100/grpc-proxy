@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct WatchChatClient_Watch_AppApp: App {
+    @WKApplicationDelegateAdaptor private var extensionDelegate: ExtensionDelegate
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(model: WatchChatViewModel())
         }
     }
 }

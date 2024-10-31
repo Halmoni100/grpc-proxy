@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var model: WatchChatViewModel
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        getMainView()
+    }
+    
+    @ViewBuilder
+    private func getMainView() -> some View {
+        if model.canChat {
+            getActiveView()
+        } else {
+            getInactiveView()
         }
-        .padding()
+    }
+    
+    private func getInactiveView() -> some View {
+        Text("Disconnected from iPhone; is iOS app open?")
+    }
+     
+    private func getActiveView() -> some View {
+        Text("Active view")
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(model: WatchChatViewModel())
 }

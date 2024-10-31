@@ -13,12 +13,20 @@ enum WatchChatClientState {
 
 class WatchChatViewModel: ObservableObject {
     @Published var chatSuccess: Bool = false
+    @Published var canChat: Bool = false
     
     private var mutex = DispatchSemaphore(value: 1)
     private var state: WatchChatClientState = .one
     private var successTimer: Timer?
     
-    init() {}
+    init() {
+        WatchConnectivityImpl.shared.addIsActiveSink { isActive in
+            DispatchQueue.main.async { [self] in
+                canChat = isActive
+                objectWillChange.send()
+            }
+        }
+    }
     
     func chat() {
         mutex.wait()

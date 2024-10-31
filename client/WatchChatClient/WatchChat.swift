@@ -17,15 +17,15 @@ class WatchChat {
     private init() {}
     
     func startChatStream() {
-        
+        WatchConnectivityImpl.shared.startChatStream()
     }
     
     func chatStreamMsg(_ msg: String) {
-        
+        WatchConnectivityImpl.shared.chatStreamMsg(msg)
     }
     
     func stopChatStream() {
-        
+        WatchConnectivityImpl.shared.stopChatStream()
     }
     
     func addResponseSink(_ sinkFunction: @escaping (String) -> Void) {
