@@ -12,7 +12,7 @@ SWIFT_DEPS_BUILD_DIR = $(DEPS_DIR)/swift_build
 PROTOC_GEN_SWIFT = $(SWIFT_DEPS_BUILD_DIR)/debug/protoc-gen-swift
 PROTOC_GEN_GRPC_SWIFT = $(SWIFT_DEPS_BUILD_DIR)/debug/protoc-gen-grpc-swift
 
-CLIENT_PROTOS_DIR = $(PWD)/client/ChatClient/ChatClient/protos
+CLIENT_PROTOS_DIR = $(PWD)/client/ChatClient/protos
 SWIFT_PROTOS = $(CLIENT_PROTOS_DIR)/chat.grpc.swift $(CLIENT_PROTOS_DIR)/chat.pb.swift 
 
 SUBMODULE_UPDATE_FILES = $(DEPS_DIR)/repos/grpc/CMakeLists.txt $(DEPS_DIR)/repos/grpc-swift/Package.swift $(DEPS_DIR)/repos/swift-protobuf/Package.swift
