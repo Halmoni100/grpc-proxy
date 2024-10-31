@@ -1,8 +1,10 @@
 MAKEFILE_DIR = $(shell pwd)
 
+default: all
+
 all: build install
 
-build:
+build: build/server
 	# build grpc
 	git submodule update --init --recursive
 	cd third_party && mkdir -p build_grpc
@@ -10,13 +12,16 @@ build:
 	# build server
 	cd protos && make clean && make
 	
-install:
+install: install/bin/server
 	cd build && ninja install
 
-run:
+run: install
 	install/bin/server
 
 clean:
 	rm -rf build
 	rm -rf install/bin/server
+
+clean_third_party:
+	rm -rf install
 	rm -rf third_party/build_grpc
