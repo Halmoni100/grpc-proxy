@@ -63,6 +63,7 @@ final class WatchConnectivityImpl: NSObject {
             return
         }
         
+        print("sending stop chat")
         WCSession.default.sendMessage([Connectivity.SEND_STOP_CHAT : ""], replyHandler: nil)
     }
 }

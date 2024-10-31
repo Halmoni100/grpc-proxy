@@ -38,6 +38,9 @@ class WatchChatViewModel: ObservableObject {
         if let timer = successTimer {
             timer.invalidate()
         }
+        
+        WatchChat.shared.startChatStream()
+        
         state = .one
         DispatchQueue.main.async { [self] in
             chatSuccess = false
