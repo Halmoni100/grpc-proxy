@@ -83,4 +83,22 @@ extension WatchConnectivityImpl: WCSessionDelegate {
             isActiveSubject.send(true)
         }
     }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+        if applicationContext.keys.contains(Connectivity.SEND_APPLICATION_CONTEXT) {
+            guard let iosRunning = applicationContext[Connectivity.SEND_APPLICATION_CONTEXT] as? Bool else {
+                return
+            }
+            isActiveSubject.send(iosRunning)
+        }
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if message.keys.contains(Connectivity.SEND_CHAT_RESPONSE) {
+            guard let response = message[Connectivity.SEND_CHAT_RESPONSE] as? String else {
+                return
+            }
+            WatchChat.shared.newResponse(response)
+        }
+    }
 }

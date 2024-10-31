@@ -66,6 +66,15 @@ extension IosConnectivityImpl: WCSessionDelegate  {
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        if message.keys.contains(Connectivity.SEND_START_CHAT) {
+            WatchChatService.shared.startStreaming()
+        } else if message.keys.contains(Connectivity.SEND_CHAT_MSG) {
+            guard let msg = message[Connectivity.SEND_CHAT_MSG] as? String else { return }
+            WatchChatService.shared.stream(msg)
+        } else if message.keys.contains(Connectivity.SEND_STOP_CHAT) {
+            WatchChatService.shared.stopStreaming()
+        }
     }
+    
 }
 
