@@ -10,7 +10,9 @@
 		950610C82CD3F3F0007F7316 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610C72CD3F3F0007F7316 /* ChatService.swift */; };
 		950610CA2CD3F913007F7316 /* WatchChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610C92CD3F913007F7316 /* WatchChatService.swift */; };
 		950610CC2CD3FAAC007F7316 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610CB2CD3FAAC007F7316 /* ChatViewModel.swift */; };
-		950610DE2CD40095007F7316 /* WatchChatClient Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 950610D12CD40094007F7316 /* WatchChatClient Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		950610DE2CD40095007F7316 /* WatchChatClient.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 950610D12CD40094007F7316 /* WatchChatClient.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		950610F12CD4052D007F7316 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610F02CD4052D007F7316 /* Connectivity.swift */; };
+		950610F22CD4052D007F7316 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950610F02CD4052D007F7316 /* Connectivity.swift */; };
 		959741082CD3D96D00C878A9 /* chat.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741002CD3D96D00C878A9 /* chat.grpc.swift */; };
 		959741092CD3D96D00C878A9 /* chat.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741012CD3D96D00C878A9 /* chat.pb.swift */; };
 		9597410A2CD3D96D00C878A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959741062CD3D96D00C878A9 /* ContentView.swift */; };
@@ -42,7 +44,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				950610DE2CD40095007F7316 /* WatchChatClient Watch App.app in Embed Watch Content */,
+				950610DE2CD40095007F7316 /* WatchChatClient.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +55,8 @@
 		950610C72CD3F3F0007F7316 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		950610C92CD3F913007F7316 /* WatchChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchChatService.swift; sourceTree = "<group>"; };
 		950610CB2CD3FAAC007F7316 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		950610D12CD40094007F7316 /* WatchChatClient Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchChatClient Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		950610D12CD40094007F7316 /* WatchChatClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchChatClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		950610F02CD4052D007F7316 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		959740FE2CD3D96D00C878A9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		959740FF2CD3D96D00C878A9 /* chat.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = chat.proto; sourceTree = "<group>"; };
 		959741002CD3D96D00C878A9 /* chat.grpc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat.grpc.swift; sourceTree = "<group>"; };
@@ -116,6 +119,7 @@
 				950610C72CD3F3F0007F7316 /* ChatService.swift */,
 				950610C92CD3F913007F7316 /* WatchChatService.swift */,
 				950610CB2CD3FAAC007F7316 /* ChatViewModel.swift */,
+				950610F02CD4052D007F7316 /* Connectivity.swift */,
 			);
 			path = ChatClient;
 			sourceTree = "<group>";
@@ -133,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				95AA924E2CD2F8030088DC18 /* ChatClient.app */,
-				950610D12CD40094007F7316 /* WatchChatClient Watch App.app */,
+				950610D12CD40094007F7316 /* WatchChatClient.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		950610D02CD40094007F7316 /* WatchChatClient Watch App */ = {
+		950610D02CD40094007F7316 /* WatchChatClient */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 950610DF2CD40095007F7316 /* Build configuration list for PBXNativeTarget "WatchChatClient Watch App" */;
+			buildConfigurationList = 950610DF2CD40095007F7316 /* Build configuration list for PBXNativeTarget "WatchChatClient" */;
 			buildPhases = (
 				950610CD2CD40094007F7316 /* Sources */,
 				950610CE2CD40094007F7316 /* Frameworks */,
@@ -156,11 +160,11 @@
 			fileSystemSynchronizedGroups = (
 				950610D22CD40094007F7316 /* WatchChatClient */,
 			);
-			name = "WatchChatClient Watch App";
+			name = WatchChatClient;
 			packageProductDependencies = (
 			);
 			productName = "WatchChatClient Watch App";
-			productReference = 950610D12CD40094007F7316 /* WatchChatClient Watch App.app */;
+			productReference = 950610D12CD40094007F7316 /* WatchChatClient.app */;
 			productType = "com.apple.product-type.application";
 		};
 		95AA924D2CD2F8030088DC18 /* ChatClient */ = {
@@ -225,7 +229,7 @@
 			projectRoot = "";
 			targets = (
 				95AA924D2CD2F8030088DC18 /* ChatClient */,
-				950610D02CD40094007F7316 /* WatchChatClient Watch App */,
+				950610D02CD40094007F7316 /* WatchChatClient */,
 			);
 		};
 /* End PBXProject section */
@@ -254,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950610F22CD4052D007F7316 /* Connectivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +268,7 @@
 			files = (
 				959741082CD3D96D00C878A9 /* chat.grpc.swift in Sources */,
 				959741092CD3D96D00C878A9 /* chat.pb.swift in Sources */,
+				950610F12CD4052D007F7316 /* Connectivity.swift in Sources */,
 				950610CC2CD3FAAC007F7316 /* ChatViewModel.swift in Sources */,
 				9597410A2CD3D96D00C878A9 /* ContentView.swift in Sources */,
 				950610CA2CD3F913007F7316 /* WatchChatService.swift in Sources */,
@@ -277,7 +283,7 @@
 /* Begin PBXTargetDependency section */
 		950610DD2CD40095007F7316 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 950610D02CD40094007F7316 /* WatchChatClient Watch App */;
+			target = 950610D02CD40094007F7316 /* WatchChatClient */;
 			targetProxy = 950610DC2CD40095007F7316 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -523,7 +529,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		950610DF2CD40095007F7316 /* Build configuration list for PBXNativeTarget "WatchChatClient Watch App" */ = {
+		950610DF2CD40095007F7316 /* Build configuration list for PBXNativeTarget "WatchChatClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				950610E02CD40095007F7316 /* Debug */,
