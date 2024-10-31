@@ -27,7 +27,7 @@ $(SWIFT_PROTOS): $(PROTOC_GEN_SWIFT) $(PROTOC_GEN_GRPC_SWIFT) $(PROTOC)
 	$(PROTOC) chat.proto --proto_path=$(SERVER_DIR)/protos --swift_opt=Visibility=Public --swift_out=$(CLIENT_PROTOS_DIR) --grpc-swift_opt=Visibility=Public,Client=true,Server=false --grpc-swift_out=$(CLIENT_PROTOS_DIR) --plugin=protoc-gen-swift=$(PROTOC_GEN_SWIFT) --plugin=protoc-gen-grpc-swift=$(PROTOC_GEN_GRPC_SWIFT)
 
 run_server: $(SERVER_BINARY)
-	install/bin/server
+	server/install/bin/server
 
 $(PROTOC_GEN_SWIFT): $(SUBMODULE_UPDATE_FILES)
 	mkdir -p $(SWIFT_DEPS_BUILD_DIR)
@@ -37,7 +37,7 @@ $(PROTOC_GEN_GRPC_SWIFT): $(SUBMODULE_UPDATE_FILES)
 	cd $(DEPS_DIR)/repos/grpc-swift && swift build --build-path $(SWIFT_DEPS_BUILD_DIR)
 
 
-$(SERVER_BINARY): $(SERVER_PROTOS) $(PROTOC) $(GRPC_CPP_PLUGIN)
+$(SERVER_BINARY): $(SERVER_PROTOS) $(PROTOC) $(GRPC_CPP_PLUGIN) $(SERVER_DIR)/src/main.cpp
 	mkdir -p $(SERVER_DIR)/build
 	mkdir -p $(SERVER_DIR)/install
 	cd $(SERVER_DIR)/build && cmake -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$(SERVER_DIR)/install $(SERVER_DIR) && ninja && ninja install

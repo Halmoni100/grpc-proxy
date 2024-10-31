@@ -39,7 +39,7 @@ class ChatService {
         
         let channel = ClientConnection
             .insecure(group: group)
-            .connect(host: "localhost", port: 50051)
+            .connect(host: "localhost", port: 50050)
         let callOptions = CallOptions(logger: grpcLogger)
         
         self.client = Chat_ChatNIOClient(channel: channel, defaultCallOptions: callOptions)

@@ -21,6 +21,8 @@ public:
     grpc::Status Chat(grpc::ServerContext* context,
             grpc::ServerReaderWriter<chat::ChatResponse, chat::ChatRequest>* stream) override
     {
+        std::cout << "Got chat request" << std::endl;
+
         std::vector<std::string> expectedMessages = {"one", "two", "three"};
 
         for (const auto& expectedMsg : expectedMessages) {
@@ -38,8 +40,11 @@ private:
         chat::ChatResponse response;
         chat::ChatRequest request;
         stream->Read(&request);
+        std::cout << "Received msg: " << request.msg();
         if (request.msg() == expectedMsg) {
-            response.set_msg(expectedMsg + "_ack");
+            std::string msgToSend = expectedMsg + "_ack";
+            std::cout << "Sending msg: " << msgToSend << std::endl;
+            response.set_msg(msgToSend);
             stream->Write(response);
             return true;
         } else {

@@ -44,6 +44,8 @@ class WatchChatViewModel: ObservableObject {
             objectWillChange.send()
         }
         
+        WatchChat.shared.chatStreamMsg("one")
+        
         mutex.signal()
     }
     

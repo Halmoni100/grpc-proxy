@@ -62,7 +62,7 @@ extension IosConnectivityImpl: WCSessionDelegate  {
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
-        <#code#>
+        session.activate()
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {

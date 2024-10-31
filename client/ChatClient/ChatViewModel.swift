@@ -35,6 +35,8 @@ class ChatViewModel: ObservableObject {
         ChatService.shared.startChatStream { [self] response in
             mutex.wait()
             
+            print("ChatService got response")
+            
             switch state {
             case .noStream, .success:
                 break;
@@ -81,6 +83,8 @@ class ChatViewModel: ObservableObject {
             
             mutex.signal()
         }
+        
+        ChatService.shared.streamChatMsg("one")
         
         mutex.signal()
     }
