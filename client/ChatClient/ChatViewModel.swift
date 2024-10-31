@@ -61,6 +61,9 @@ class ChatViewModel: ObservableObject {
                         chatSuccess = true
                         objectWillChange.send()
                     }
+                    if let timer = successTimer {
+                        timer.invalidate()
+                    }
                     successTimer = Timer(timeInterval: 2, repeats: false) { [self] timer in
                         mutex.wait()
                         state = .noStream

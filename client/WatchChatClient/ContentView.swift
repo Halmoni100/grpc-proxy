@@ -28,7 +28,29 @@ struct ContentView: View {
     }
      
     private func getActiveView() -> some View {
-        Text("Active view")
+        VStack {
+            getSuccessView()
+            Button(action: beginChat) {
+                Text("Begin chat")
+            }
+        }
+    }
+    
+    func beginChat() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            model.chat()
+        }
+    }
+    
+    @ViewBuilder
+    private func getSuccessView() -> some View {
+        if model.chatSuccess {
+            Text("Success!")
+                .foregroundStyle(.red)
+        } else {
+            Text("Waiting...")
+                .foregroundStyle(.gray)
+        }
     }
 }
 

@@ -32,7 +32,7 @@ struct ContentView: View {
     }
     
     func beginChat() {
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             model.chat()
         }
     }

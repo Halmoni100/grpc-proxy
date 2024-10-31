@@ -26,6 +26,10 @@ class WatchChatViewModel: ObservableObject {
                 objectWillChange.send()
             }
         }
+        
+        WatchChat.shared.addResponseSink { response in
+            self.react(toMsg: response)
+        }
     }
     
     func chat() {
@@ -39,5 +43,57 @@ class WatchChatViewModel: ObservableObject {
             chatSuccess = false
             objectWillChange.send()
         }
+        
+        mutex.signal()
+    }
+    
+    private func react(toMsg msg: String) {
+        mutex.wait()
+        
+        switch state {
+        case .noStream, .success:
+            break;
+        case .one:
+            if msg == "one_ack" {
+                state = .two
+                WatchChat.shared.chatStreamMsg("two")
+            } else {
+                WatchChat.shared.stopChatStream()
+                state = .noStream
+            }
+        case .two:
+            if msg == "two_ack" {
+                state =  .three
+                WatchChat.shared.chatStreamMsg("three")
+            } else {
+                WatchChat.shared.stopChatStream()
+                state = .noStream
+            }
+        case .three:
+            if msg == "three_ack" {
+                state = .success
+                DispatchQueue.main.async { [self] in
+                    chatSuccess = true
+                    objectWillChange.send()
+                }
+                if let timer = successTimer {
+                    timer.invalidate()
+                }
+                successTimer = Timer(timeInterval: 2, repeats: false) { [self] timer in
+                    mutex.wait()
+                    state = .noStream
+                    DispatchQueue.main.async { [self] in
+                        chatSuccess = false
+                        objectWillChange.send()
+                    }
+                    mutex.signal()
+                }
+            } else {
+                WatchChat.shared.stopChatStream()
+                state = .noStream
+            }
+        }
+        
+        mutex.signal()
     }
 }
