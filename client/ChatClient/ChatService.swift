@@ -21,9 +21,11 @@ class ChatService {
         case streaming(BidirectionalStreamingCall<Request, Response>)
     }
     
+    private let logger: Logging.Logger
+    
+    private var mutex = DispatchSemaphore(value: 1)
     private var state: State = .idle
     private var client: Chat_ChatNIOClient
-    private let logger: Logging.Logger
     
     private init() {
         logger = Logger(label: "ChatService")
@@ -37,13 +39,15 @@ class ChatService {
         
         let channel = ClientConnection
             .insecure(group: group)
-            .connect(host: "localhost", port: 5005)
+            .connect(host: "localhost", port: 50051)
         let callOptions = CallOptions(logger: grpcLogger)
         
         self.client = Chat_ChatNIOClient(channel: channel, defaultCallOptions: callOptions)
     }
     
     func startChatStream(completion: ((Response) -> Void)? = nil) {
+        mutex.wait()
+        
         switch self.state {
         case .idle:
             logger.info("Start streaming")
@@ -53,9 +57,13 @@ class ChatService {
             self.state = .streaming(call)
         default: break
         }
+        
+        mutex.signal()
     }
     
     func streamChatMsg(_ msg: String) {
+        mutex.wait()
+        
         switch self.state {
         case let .streaming(call):
             var request = Chat_ChatRequest()
@@ -63,9 +71,13 @@ class ChatService {
             call.sendMessage(request, promise: nil)
         default: break
         }
+        
+        mutex.signal()
     }
     
     func stopChatStream() {
+        mutex.wait()
+        
         switch self.state {
         case let .streaming(stream):
             logger.info("stop streaming")
@@ -73,5 +85,7 @@ class ChatService {
             self.state = .idle
         default: break
         }
+        
+        mutex.signal()
     }
 }
